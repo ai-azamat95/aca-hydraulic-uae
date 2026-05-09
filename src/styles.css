@@ -398,3 +398,106 @@ h1 span, h2 span { color: var(--gold); }
   .pricing-notes div { align-items: flex-start; }
   .floating-wa { width: 54px; height: 54px; }
 }
+
+/* Real generated image assets connected to the website */
+.photo-hero {
+  background: #07111b;
+}
+.photo-hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+}
+.hero-image-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(5,10,16,.20), rgba(5,10,16,.05) 45%, rgba(5,10,16,.42)),
+    linear-gradient(180deg, rgba(5,10,16,.05), rgba(5,10,16,.72));
+}
+.photo-hero .hud-card {
+  right: 28px;
+  bottom: 34px;
+}
+.photo-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: .58;
+  transform: scale(1.04);
+  transition: transform .3s ease, opacity .3s ease;
+}
+.photo-card:hover img {
+  transform: scale(1.09);
+  opacity: .72;
+}
+.photo-card .card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5,10,15,.05), rgba(5,10,15,.92));
+}
+.photo-card svg,
+.photo-card h3,
+.photo-card p {
+  position: relative;
+  z-index: 2;
+}
+.case-card .case-image {
+  display: block;
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  background: #101a24;
+  border-bottom: 1px solid var(--line);
+}
+.reference-section {
+  background:
+    radial-gradient(circle at 85% 10%, rgba(242,183,42,.12), transparent 22rem),
+    linear-gradient(180deg, rgba(7,15,24,.4), rgba(5,10,16,.8));
+}
+.reference-grid {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 34px;
+  align-items: center;
+}
+.reference-grid h2 {
+  margin: 10px 0 14px;
+  font-size: clamp(30px, 4vw, 50px);
+  line-height: 1.03;
+  letter-spacing: -0.055em;
+}
+.reference-grid p {
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 17px;
+  margin-bottom: 24px;
+}
+.reference-card {
+  display: block;
+  border: 1px solid rgba(242,183,42,.28);
+  border-radius: 28px;
+  overflow: hidden;
+  background: rgba(255,255,255,.04);
+  box-shadow: 0 32px 90px rgba(0,0,0,.35);
+}
+.reference-card img {
+  display: block;
+  width: 100%;
+  height: min(680px, 70vh);
+  object-fit: cover;
+  object-position: top center;
+}
+@media (max-width: 1060px) {
+  .reference-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .photo-hero img { transform: scale(1.1); }
+  .photo-hero .hud-card { bottom: 28px; }
+  .reference-card img { height: 520px; }
+}

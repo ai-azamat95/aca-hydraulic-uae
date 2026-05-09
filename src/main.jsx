@@ -44,10 +44,10 @@ const problemCards = [
 ];
 
 const clientTypes = [
-  { icon: Building2, title: 'Construction companies', text: 'Emergency diagnostics and repair planning for excavators, loaders, cranes and site equipment.' },
-  { icon: Truck, title: 'Equipment rental companies', text: 'Reduce downtime, avoid wrong repairs and keep your rental fleet working.' },
-  { icon: Loader, title: 'Industrial & logistics companies', text: 'Hydraulic troubleshooting for forklifts, port equipment and industrial hydraulic systems.' },
-  { icon: Wrench, title: 'Hydraulic workshops', text: 'External field diagnostics partner for complex cases and on-site inspections.' }
+  { icon: Building2, image: './assets/customer-1.jpg', title: 'Construction companies', text: 'Emergency diagnostics and repair planning for excavators, loaders, cranes and site equipment.' },
+  { icon: Truck, image: './assets/customer-2.jpg', title: 'Equipment rental companies', text: 'Reduce downtime, avoid wrong repairs and keep your rental fleet working.' },
+  { icon: Loader, image: './assets/customer-3.jpg', title: 'Industrial & logistics companies', text: 'Hydraulic troubleshooting for forklifts, port equipment and industrial hydraulic systems.' },
+  { icon: Wrench, image: './assets/customer-4.jpg', title: 'Hydraulic workshops', text: 'External field diagnostics partner for complex cases and on-site inspections.' }
 ];
 
 const equipment = [
@@ -65,16 +65,19 @@ const steps = [
 
 const cases = [
   {
+    image: './assets/case-1.jpg',
     title: 'Excavator — Power Loss',
     text: 'Low power on boom and arm. Hydraulic behavior checked, fault area identified.',
     result: 'Downtime reduced by 3 days'
   },
   {
+    image: './assets/case-2.jpg',
     title: 'Wheel Loader — Slow Functions',
     text: 'Slow lift and tilt. Pilot pressure and hydraulic circuit tested on site.',
     result: 'Downtime reduced by 2 days'
   },
   {
+    image: './assets/case-3.jpg',
     title: 'HDD Rig — Overheating',
     text: 'High oil temperature and unstable functions. Cooling and bypass issue isolated.',
     result: 'Downtime reduced by 4 days'
@@ -110,15 +113,9 @@ function Header() {
 
 function HeroVisual() {
   return (
-    <div className="hero-visual" aria-hidden="true">
-      <div className="skyline" />
-      <div className="machine machine-boom" />
-      <div className="machine machine-body" />
-      <div className="technician">
-        <div className="helmet" />
-        <div className="jacket">ACA</div>
-        <div className="tablet" />
-      </div>
+    <div className="hero-visual photo-hero" aria-label="Field hydraulic diagnostics visual">
+      <img src="./assets/hero-field-diagnostics.jpg" alt="ACA Hydraulic UAE technician diagnosing heavy equipment hydraulics in Dubai" />
+      <div className="hero-image-shade" />
       <div className="hud-card">
         <span>System Pressure</span>
         <strong>312</strong>
@@ -186,8 +183,9 @@ function Customers() {
           <h2>Built for Companies Where Downtime Costs Money</h2>
         </div>
         <div className="cards four">
-          {clientTypes.map(({ icon: Icon, title, text }, index) => (
+          {clientTypes.map(({ icon: Icon, image, title, text }, index) => (
             <article className={`photo-card photo-${index + 1}`} key={title}>
+              <img src={image} alt={title} />
               <div className="card-overlay" />
               <Icon size={34} />
               <h3>{title}</h3>
@@ -304,15 +302,33 @@ function Cases() {
           <h2>Real Field Experience With Complex Failures</h2>
         </div>
         <div className="cards three">
-          {cases.map((item, index) => (
+          {cases.map((item) => (
             <article className="case-card" key={item.title}>
-              <div className={`case-image case-${index + 1}`} />
+              <img className="case-image" src={item.image} alt={item.title} />
               <h3>{item.title}</h3>
               <p>{item.text}</p>
               <strong>{item.result}</strong>
             </article>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function DesignReference() {
+  return (
+    <section className="section compact reference-section" id="visual-reference">
+      <div className="container reference-grid">
+        <div>
+          <span className="section-kicker">Visual Direction</span>
+          <h2>Premium UAE Industrial Website Concept</h2>
+          <p>These generated visuals are included inside the project as the approved design reference. The live landing page uses the same dark navy, graphite and construction-gold style with real image assets derived from the mockup.</p>
+          <a className="btn btn-outline" href="./assets/mockups/aca-hydraulic-uae-reference-main.png" target="_blank" rel="noreferrer">Open full mockup</a>
+        </div>
+        <a className="reference-card" href="./assets/mockups/aca-hydraulic-uae-reference-main.png" target="_blank" rel="noreferrer">
+          <img src="./assets/mockups/aca-hydraulic-uae-reference-main.png" alt="ACA Hydraulic UAE generated website design reference" />
+        </a>
       </div>
     </section>
   );
@@ -401,6 +417,7 @@ function App() {
         <Process />
         <Pricing />
         <Cases />
+        <DesignReference />
         <Contact />
       </main>
       <Footer />
